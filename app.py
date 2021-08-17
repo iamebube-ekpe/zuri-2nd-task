@@ -35,7 +35,7 @@ def send_msg():
         message.body = f""" From: {email} <Subject:{subject}> \n{msg} """ 
         mail.send(message)
 
-        # success = "Your message has been sent!"
+        # success = "Your message has been sent"
         return redirect('/')
 
 
