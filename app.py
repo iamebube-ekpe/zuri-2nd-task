@@ -24,7 +24,7 @@ def index():
 
 
 
-@app.route('/send_msg', methods=['POST'])
+@app.route('/', methods=['POST'])
 def send_msg():
     if request.method == "POST":
         email = request.form['email']
