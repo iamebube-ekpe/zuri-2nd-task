@@ -31,7 +31,7 @@ def send_msg():
         subject = request.form['subject']
         msg = request.form['message']
 
-        message = Message(subject,sender="victorekpe11@gmail.com",recipients=["victorekpe11@gmail.com"])
+        message = Message(subject,sender=email,recipients=[os.getenv('MAIL_USERNAME')])
         message.body = f""" From: {email} <Subject:{subject}> \n{msg} """ 
         mail.send(message)
 
