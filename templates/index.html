@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>My Personal Resume</title>
+    <link href="../static/css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../static/css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+    <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?ver=3.3"></script>
+    <script type="text/javascript" src="../static/js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.easing.1.3.js"></script>
+
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo">
+            <a href="{{url_for('index')}}"><img src="../static/images/zuri-logo-full.svg"></a>
+        </div>
+        <ul id="main-menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#connect">Connect</a></li>
+        </ul>
+    </div>
+
+    <div id="container">
+
+        <!--Begin About Section-->
+        <div id="about">
+            <h1>About</h1>
+            <ul id="top-social">
+                <li><a href="https://twitter.com/iam3vel" target="_blank" class="twitter">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/in/ekpe-ebube-44281b182/" target="_blank" class="linkedin">LinkedIn</a></li>
+                <li>
+                    <a href="https://github.com/iamebube-ekpe" target="_blank" class="github">Github</a>
+                </li>
+                <li><a href="https://zuri.team" target="_blank" class="zuri">Zuri</a></li>
+            </ul>
+            <div class="top-divider"></div>
+            <div class="content">
+                <img src="../static/images/evel-image.jpeg" />
+                <h2>Hello World! My name is Ebube Victor Ekpe, and I am a Backend Developer</h2>
+                <p>Tech-savvy Backend Developer proficient in fundamental front-end languages and server-side languages. With In-depth knowledge of SQL and MongoDB. Analytical and precise professional with 2 years of hands-on experience taking charge of
+                    front and back-end web development. Creating servers and databases for functionality, designing and developing RESTFUL API's. Hardworking collaborator with a track record of producing satisfactory results.</p>
+                <ul id="service-icons">
+                    <li class="services-rest">RESTAPI</li>
+                    <li class="services-nosql">NOSQL</li>
+                </ul>
+            </div>
+            <div class="bottom-divider"></div>
+        </div>
+        <!--End About Section-->
+
+        <!--Begin Experience Section-->
+        <div id="experience">
+            <h1>Experience</h1>
+            <div class="top-divider"></div>
+            <div class="content">
+                <div class="col">
+                    <h2><a href="https://project-pebg.web.app/" target="_blank">Project PEGB</a></h2>
+                    <h3>Description Of Work</h3>
+                    <p><i> This is a data analytics website that presents criminal data visulization. A project done with the use of HTML, CSS, JavaScript for the frontend and backend, whilst python was used as the analytical tool used for cleaning, processing
+                        and making graphical representations of the processed data.</i>
+                    </p>
+                </div>
+
+                <div class="col col-mid">
+                    <h2>Hash Anayltics Data Science Intern</a>
+                    </h2>
+                    <h3>Description Of Work</h3>
+                    <p> <i>An internship where interns were given the training and opportunity to get data, clean, process and make informative graphs out of the data for easy understanding.</i>
+                    </p>
+                </div>
+
+                <div class="col">
+                    <h2>Accolm Intern</h2>
+                    <h3>Description Of Work</h3>
+                    <p><i>An internship where interns were trained on building security applications with Java as a backend and Vue.js as the frontend framework. I had the opportunity of building the backend logic and creating restful apis which were used in
+                        the implementation of the project given to my team.</i>
+                    </p>
+                </div>
+            </div>
+            <div class="bottom-divider"></div>
+        </div>
+        <!--End Experience Section-->
+
+        <!--Begin Connect Section-->
+        <div id="connect">
+            <h1>Connect</h1>
+            <div class="top-divider"></div>
+            <div class="content">
+                <div id="form">
+                    <form action="{{url_for('send_msg')}}" method="POST">
+                        <span>Email</span>
+                        <input type="text" name="email" class="email" required id="email" autocomplete="off" />
+                        <span>Subject</span>
+                        <input type="text" name="subject" class="subject" required id="subject" autocomplete="off" />
+                        <span>Message</span>
+                        <textarea class="message" name="message" required id="message"></textarea>
+                        <input type="submit" name="submite" value="Submit" class="submit">
+                    </form>
+                </div>
+                <div id="social-footer">
+                    <h2>Follow Me:</h2>
+                    <p> If you'd like to get in touch with me on social media, these are the places you can find me. See ya!</p>
+                    <ul id="sm-links">
+                        <li><a href="https://twitter.com/iam3vel" class="twitter">Twitter</a></li>
+                        <li><a href="https://www.linkedin.com/in/ekpe-ebube-44281b182/" class="linkedin">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--End Connect Section-->
+
+    </div>
+
+    <!-- The JavaScript -->
+    <script type="text/javascript">
+        $(function() {
+            $('#main-menu li a').bind('click', function(event) {
+                var $anchor = $(this);
+
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+
+                event.preventDefault();
+            });
+        });
+
+        $(document).ready(function() {
+            $("a[rel^='prettyPhoto']").prettyPhoto({
+                social_tools: false,
+                deeplinking: false
+            });
+        });
+    </script>
+</body>
+
+</html>
